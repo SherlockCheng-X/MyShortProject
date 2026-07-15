@@ -1,4 +1,4 @@
-﻿# My short project
+﻿# My tiny project
 ---
 > This repository is for collecting my project trainning process.
 > The goal is improve coding skills.
