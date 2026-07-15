@@ -1,9 +1,9 @@
-﻿#include "header.h"
+﻿#include "fun.h"
 
-string add_mode()
+std::string add_mode()
 {
-	string temp;
-	cout << "Plz enter the content:";
-	getline(cin, temp);
+	std::string temp;
+	std::cout << "Plz enter the content:";
+	std::getline(std::cin, temp);
 	return temp;
 }

@@ -1,39 +1,51 @@
 ﻿#include <iostream>
-#include "header.h"
+#include <limits>
+#include "fun.h"
 #include <vector>
 
 int main()
 {
-    vector<string> tasks;
+    std::vector<std::string> tasks;
     int choice;
     do {
-        cout << "1.Add 2.Display 3.Delete 0.Quit";
-        cin >> choice;
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        std::cout << "1.Add 2.Display 3.Delete 0.Quit\nchoice:";
+        std::cin >> choice;
+        if (std::cin.fail())
+        {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            choice = -1;
+        }
         switch (choice)
         {
         case 0:
         {
-            cout << "Ok, see ya!";
+            std::cout << "Ok, see ya!";
+            choice = 0;
             break;
         }
         case 1:
         {
-            cout << "add" << endl;
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            tasks.push_back(add_mode());
             break;
         }
         case 2:
         {
-            cout << "display" << endl;
+            if (tasks.size() != 0) display(tasks.begin(), tasks.end());
+            else
+            {
+                std::cout << "You don't have any task yet." << std::endl;
+            }
             break;
         }
         case 3:
         {
-            cout << "delete" << endl;
+            std::cout << "delete" << std::endl;
             break;
         }
         default:
-            cout << "Unexpected choice, quit. :(";
+            std::cout << "Unexpected choice, plz enter a number. again! :(" << std::endl;
             break;
         }
     } while (choice != 0);
