@@ -2,8 +2,6 @@
 
 >This repository is for collecting my project training process. The goal is to improve coding skills.
 
----
-
 ## 📌About this repository
 Every project here is a small step toward improving my coding skills, documenting my project-based learning journey.
 
