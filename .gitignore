@@ -1,4 +1,15 @@
 #Folder to be ignored
 /GitIgnoreFiles/
-.vs/
+**/.vs/
 *.user
+**/x64/
+**/Debug/
+**/Release/
+**/Debug/*.exe
+*.obj
+*.pdb
+*.ilk
+*.log
+*.tlog
+*.recipe
+*.idb
