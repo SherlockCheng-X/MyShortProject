@@ -1,22 +1,53 @@
 ﻿#include "student.h"
 #include <iostream>
-#include <string>
-#include <map>
 
-class Student
+
+
+Student::Student() : name(""), id(0) { }
+Student::Student(const std::string& tname, const int tid) : name(tname), id(tid) {}
+void Student::setid(const int tid)
 {
-public:
-	Student();
-	~Student();
+	this->id = tid;
+}
 
-private:
-	std::string name;
-	int id;
-	std::map<std::string, double> scores;
-};
+void Student::setname(const std::string& tname)
+{
+	this->name = tname;
+}
 
-Student::Student()
-{}
+void Student::setscore(const std::string& subject, int tscore)
+{
+	this->scores[subject] = tscore;
+}
 
-Student::~Student()
-{}
+int Student::getid() const
+{
+	return this->id;
+}
+
+std::string Student::getname() const
+{
+	return this->name;
+}
+
+std::optional<double> Student::getscore(const std::string subject) const
+{
+	auto it = this->scores.find(subject);
+	if (it != this->scores.end()) return it->second;
+	else return std::nullopt;
+}
+
+double Student::getaverage() const
+{
+	if (this->scores.empty()) return 0.0;
+	double total { 0.0 };
+	for (const auto& temp : this->scores) total += temp.second;
+	return total / this->scores.size();
+}
+
+double Student::getsum() const
+{
+	double result{ 0 };
+	for (const auto& temp : this->scores) result += temp.second;
+	return result;
+}
